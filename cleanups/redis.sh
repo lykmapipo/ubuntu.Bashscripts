@@ -75,7 +75,7 @@ fi
 if [ -f "$PPA_KEYRING_FILE" ]; then
     KEY_ID=$(gpg --no-default-keyring --keyring "$PPA_KEYRING_FILE" --list-keys | grep -A 1 pub | awk '{print $1}' | tail -n1)
     if [ -n "$KEY_ID" ]; then
-    	if gpg --no-default-keyring --keyring "$PPA_KEYRING_FILE" --delete-keys "$KEY_ID"; then
+    	if sudo gpg --no-default-keyring --keyring "$PPA_KEYRING_FILE" --delete-keys "$KEY_ID"; then
     		echo "Removing associated GPG key..."
     	fi
     fi
