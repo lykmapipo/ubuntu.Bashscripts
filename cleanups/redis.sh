@@ -7,7 +7,7 @@
 set -e
 
 # Stop, disable and unistall Redis
-if dpkg -l | grep "^ii  redis-server"; then
+if dpkg -l | grep -q "^ii  redis-server"; then
 	# Stop Redis service
 	echo "Stopping Redis service..."
 	sudo systemctl stop redis-server
