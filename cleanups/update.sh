@@ -4,7 +4,7 @@
 # It updates package lists, upgrades installed packages, and performs a
 # distribution upgrade.
 
-# Enable error handling: 
+# Enable error handling:
 # - `set -e` will stop the script if any command exits with a non-zero status
 # - `set -o pipefail` ensures that if any command in a pipeline fails,
 # the script will exit with that command's status

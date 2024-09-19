@@ -58,27 +58,27 @@ fi
 # Remove any third-party Redis PPA if it was added
 PPA_NAME="chris-lea/redis-server"
 PPA_FILE="chris-lea-ubuntu-redis-server"
-PPA_KEYRING_FILE="/etc/apt/trusted.gpg.d/chris-lea_ubuntu_redis-server.gpg";
+PPA_KEYRING_FILE="/etc/apt/trusted.gpg.d/chris-lea_ubuntu_redis-server.gpg"
 if ls /etc/apt/sources.list.d/*"$PPA_FILE"* &>/dev/null; then
-    # Remove the PPA
-    if sudo add-apt-repository --remove ppa:"$PPA_NAME" -y; then
-    	echo "Removing Redis PPA..."
-    fi 
+	# Remove the PPA
+	if sudo add-apt-repository --remove ppa:"$PPA_NAME" -y; then
+		echo "Removing Redis PPA..."
+	fi
 
-    # Remove any associated PPA files manually (if necessary)
-    if sudo rm -f /etc/apt/sources.list.d/*"$PPA_FILE"*; then
-    	echo "Removing associated PPA files..."
-    fi
+	# Remove any associated PPA files manually (if necessary)
+	if sudo rm -f /etc/apt/sources.list.d/*"$PPA_FILE"*; then
+		echo "Removing associated PPA files..."
+	fi
 fi
 
 # Remove any third-party Redis PPA GPG key if it was added
 if [ -f "$PPA_KEYRING_FILE" ]; then
-    KEY_ID=$(gpg --no-default-keyring --keyring "$PPA_KEYRING_FILE" --list-keys | grep -A 1 pub | awk '{print $1}' | tail -n1)
-    if [ -n "$KEY_ID" ]; then
-    	if sudo gpg --no-default-keyring --keyring "$PPA_KEYRING_FILE" --delete-keys "$KEY_ID"; then
-    		echo "Removing associated GPG key..."
-    	fi
-    fi
+	KEY_ID=$(gpg --no-default-keyring --keyring "$PPA_KEYRING_FILE" --list-keys | grep -A 1 pub | awk '{print $1}' | tail -n1)
+	if [ -n "$KEY_ID" ]; then
+		if sudo gpg --no-default-keyring --keyring "$PPA_KEYRING_FILE" --delete-keys "$KEY_ID"; then
+			echo "Removing associated GPG key..."
+		fi
+	fi
 fi
 
 echo "Redis and associated PPA have been completely uninstalled from your system."

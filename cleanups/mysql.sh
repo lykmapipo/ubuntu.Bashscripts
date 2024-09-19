@@ -20,7 +20,7 @@ if dpkg -l | grep -q "^ii  mysql-server"; then
 	MYSQL_PACKAGES=$(dpkg -l | grep -q '^ii  mysql' | awk '{print $2}')
 	if [ -n "$MYSQL_PACKAGES" ]; then
 		echo "Uninstalling MySQL package..."
-	    echo "$MYSQL_PACKAGES" | xargs sudo apt-get purge --auto-remove -y
+		echo "$MYSQL_PACKAGES" | xargs sudo apt-get purge --auto-remove -y
 	fi
 fi
 
