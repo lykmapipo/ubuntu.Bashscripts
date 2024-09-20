@@ -13,7 +13,7 @@ lint/cleanups:
 .PHONY: pull  ## Pull docker images i.e linter, formatters etc
 pull: pull/linter
 
-.PHONY: pull/linter  ## Pull linter docker images i.e shellcheck etc
+.PHONY: pull/linter  ## Pull linter docker images i.e shellcheck, shfmt etc
 pull/linter:
 	docker pull koalaman/shellcheck:latest
 	docker pull mvdan/shfmt:latest
