@@ -1,14 +1,21 @@
 .DEFAULT_GOAL := help
 
 .PHONY: lint  ## Lint and format bash scripts
-lint: lint/cleanups
+lint: lint/system lint/uninstall
 
-.PHONY: lint/cleanups  ## Lint and format cleanup bash scripts
-lint/cleanups:
-	docker run --rm -i -v ./cleanups:/mnt/cleanups koalaman/shellcheck \
-	./cleanups/*.sh
-	docker run --rm -u $(id -u):$(id -g) -v ./cleanups:/mnt/cleanups \
-	mvdan/shfmt:latest -w /mnt/cleanups
+.PHONY: lint/system  ## Lint and format system bash scripts
+lint/system:
+	docker run --rm -i -v ./system:/mnt/system koalaman/shellcheck \
+	./system/*.sh
+	docker run --rm -u $(id -u):$(id -g) -v ./system:/mnt/system \
+	mvdan/shfmt:latest -w /mnt/system
+
+.PHONY: lint/uninstall  ## Lint and format uninstall bash scripts
+lint/uninstall:
+	docker run --rm -i -v ./uninstall:/mnt/uninstall koalaman/shellcheck \
+	./uninstall/*.sh
+	docker run --rm -u $(id -u):$(id -g) -v ./uninstall:/mnt/uninstall \
+	mvdan/shfmt:latest -w /mnt/uninstall
 
 .PHONY: pull  ## Pull docker images i.e linter, formatters etc
 pull: pull/linter
