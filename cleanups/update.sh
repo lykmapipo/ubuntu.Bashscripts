@@ -3,13 +3,17 @@
 # This script performs a series of system update and maintenance tasks for Ubuntu.
 # It updates package lists, upgrades installed packages, and performs a
 # distribution upgrade.
+#
+# Usage:
+#   chmod +x update.sh
+#   ./update.sh
 
 # Enable error handling:
 # - `set -e` will stop the script if any command exits with a non-zero status
 # - `set -o pipefail` ensures that if any command in a pipeline fails,
 # the script will exit with that command's status
 set -e
-set -o pipefail
+# set -o pipefail
 
 echo "Starting system update..."
 

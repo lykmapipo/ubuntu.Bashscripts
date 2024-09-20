@@ -2,9 +2,17 @@
 
 # Bash script to uninstall Redis, its database, docs and configurations, and
 # associated third-party PPA from Ubuntu.
+#
+# Usage:
+#   chmod +x redis.sh
+#   ./redis.sh
 
-# Enable error handling to stop script if any command fails
+# Enable error handling:
+# - `set -e` will stop the script if any command exits with a non-zero status
+# - `set -o pipefail` ensures that if any command in a pipeline fails,
+# the script will exit with that command's status
 set -e
+# set -o pipefail
 
 # Stop, disable and unistall Redis
 if dpkg -l | grep -q "^ii  redis-server"; then

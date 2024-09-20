@@ -2,9 +2,17 @@
 
 # Bash script to uninstall MySQL, its database, docs and configurations, and
 # associated third-party PPA from Ubuntu.
+#
+# Usage:
+#   chmod +x mysql.sh
+#   ./mysql.sh
 
-# Enable error handling to stop script if any command fails
+# Enable error handling:
+# - `set -e` will stop the script if any command exits with a non-zero status
+# - `set -o pipefail` ensures that if any command in a pipeline fails,
+# the script will exit with that command's status
 set -e
+# set -o pipefail
 
 # Stop, disable and unistall MySQL
 if dpkg -l | grep -q "^ii  mysql-server"; then

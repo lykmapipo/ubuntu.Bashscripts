@@ -1,9 +1,17 @@
 #!/bin/bash
 
 # This script performs a series of system cleanup and maintenance tasks for Ubuntu.
+#
+# Usage:
+#   chmod +x clean.sh
+#   ./clean.sh
 
-# Enable error handling to stop script if any command fails
+# Enable error handling:
+# - `set -e` will stop the script if any command exits with a non-zero status
+# - `set -o pipefail` ensures that if any command in a pipeline fails,
+# the script will exit with that command's status
 set -e
+# set -o pipefail
 
 echo "Starting system cleanup..."
 
