@@ -20,15 +20,14 @@ Collection of useful Bash scripts for various system administration, DevOps, aut
 git clone https://github.com/lykmapipo/bash.Scripts.git
 ```
 
-- Install docker images
+- Run system cleanup
 ```sh
-make pull
+./system/cleanup.sh
 ```
 
-- Run cleanup tasks
+- Run system update
 ```sh
-./cleanups/clean.sh
-./cleanups/update.sh
+./system/update.sh
 ```
 
 
