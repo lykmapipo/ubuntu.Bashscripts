@@ -1,8 +1,8 @@
-# bash Scripts
+# Ubuntu Bashscripts
 
-Collection of useful Bash scripts for various system administration, DevOps, automation tasks etc.
+Collection of useful Bash scripts for various Ubuntu system administration, DevOps, automation tasks etc.
 
-> :sparkles: These scripts provide a solid foundation for creating custom solutions for a wide range of tasks. :rocket:
+> :sparkles: These scripts provide a foundation for creating custom Bash scripts for a wide range of tasks. :rocket:
 
 
 ## Requirements
@@ -17,7 +17,7 @@ Collection of useful Bash scripts for various system administration, DevOps, aut
 
 - Clone this repository
 ```sh
-git clone https://github.com/lykmapipo/bash.Scripts.git
+git clone https://github.com/lykmapipo/ubuntu.Bashscripts.git
 ```
 
 - Run system cleanup
