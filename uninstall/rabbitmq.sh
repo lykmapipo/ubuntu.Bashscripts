@@ -26,7 +26,7 @@ if dpkg -l | grep -q "^ii  rabbitmq"; then
 
 	# Uninstall RabbitMQ package
 	echo "Uninstalling RabbitMQ package..."
-    sudo apt-get purge --auto-remove rabbitmq-server -y
+	sudo apt-get purge --auto-remove rabbitmq-server -y
 fi
 
 # Remove RabbitMQ configuration files
